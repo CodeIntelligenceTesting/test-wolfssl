@@ -34,7 +34,10 @@ if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
      You must delete them, or cmake will refuse to work.")
 endif()
 
-project(wolfssl VERSION 5.7.2 LANGUAGES C ASM)
+project(wolfssl VERSION 5.7.2 LANGUAGES C ASM CXX)
+
+find_package(cifuzz NO_SYSTEM_ENVIRONMENT_PATH)
+enable_fuzz_testing()
 
 # Set WOLFSSL_ROOT if not already defined
 if ("${WOLFSSL_ROOT}" STREQUAL "")
@@ -2760,3 +2763,6 @@ if(WOLFSSL_INSTALL)
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/wolfssl
     )
 endif()
+
+add_fuzz_test(fuzz fuzz.cpp)
+target_link_libraries(fuzz wolfssl)
