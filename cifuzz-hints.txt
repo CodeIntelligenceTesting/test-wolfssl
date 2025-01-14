@@ -1,0 +1,3 @@
+When fuzzing the function `wc_AesCbcDecrypt` ensure that the decrypted buffer
+is large enough for the input that is passed to the function. Either allocate a
+large enough buffer or discard large fuzzing inputs.
