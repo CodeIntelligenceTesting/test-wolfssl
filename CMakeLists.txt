@@ -2766,3 +2766,5 @@ endif()
 
 add_fuzz_test(fuzz fuzz.cpp)
 target_link_libraries(fuzz wolfssl)
+
+add_subdirectory(cifuzz-spark)
