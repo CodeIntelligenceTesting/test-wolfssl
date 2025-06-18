@@ -1,4 +1,4 @@
 #cifuzz:build-template:begin
 #add_fuzz_test({{ .FuzzTestName }} {{ .FileName }})
-#target_link_libraries(fuzz PRIVATE wolfssl)
+#target_link_libraries({{ .FuzzTestName }} PRIVATE wolfssl)
 #cifuzz:build-template:end

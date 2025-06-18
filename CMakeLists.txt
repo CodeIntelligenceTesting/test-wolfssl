@@ -2765,6 +2765,6 @@ if(WOLFSSL_INSTALL)
 endif()
 
 add_fuzz_test(fuzz fuzz.cpp)
-target_link_libraries(fuzz wolfssl)
+target_link_libraries(fuzz PRIVATE wolfssl)
 
 add_subdirectory(cifuzz-spark)
